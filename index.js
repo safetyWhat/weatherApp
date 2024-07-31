@@ -14,7 +14,7 @@ const getWeather = (location) => {
                 return response.json();
             })
             .then(function(response) {
-                //resolvedLocation.innerText = response.resolvedAddress;
+                resolvedLocation.innerText = response.resolvedAddress;
                 currConditions.innerText = response.currentConditions.conditions;
                 currTemperature.innerText = response.currentConditions.temp;
                 feelsLikeTemp.innerText = response.currentConditions.feelslike;
@@ -29,5 +29,9 @@ document.addEventListener('keypress', (e) => {
         getWeather(locale);
     }
 });
+
+searchBox.onfocus = () => {
+   searchBox.value = ''; 
+};
 
 getWeather(locale);
